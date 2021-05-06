@@ -7,7 +7,7 @@ export const Home = () => {
 
   useEffect( async () =>{
     
-      let response = await fetch('http://localhost:3001/home')
+      let response = await fetch('http://localhost:3001/api/export')
       setArr(await response.json())
   },[])
 
@@ -25,11 +25,13 @@ export const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      { arr.map( (item, key) => {
-        return(
-          <p key={key}> {item.name}</p>
-        )
-      })}
+      <ul>
+        { arr.map( (item, key) => {
+          return(
+            <li key={key}> {item.name}</li>
+          )
+        })}
+      </ul>
     </div>
   );
 }
